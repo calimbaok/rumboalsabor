@@ -78,36 +78,67 @@
 
 <script>
   function enviarPedido() {
-    const inputs = {
-      sandwich: document.getElementById("sandwich"),
-      alfajor: document.getElementById("alfajor"),
-      yogurt: document.getElementById("yogurt")
-    };
+  const inputs = {
+    sandwich: document.getElementById("sandwich"),
+    alfajor: document.getElementById("alfajor"),
+    yogurt: document.getElementById("yogurt")
+  };
 
-    const productos = [
-      { nombre: "Sándwich de milanesa", cantidad: parseInt(inputs.sandwich.value) },
-      { nombre: "Alfajores de maicena", cantidad: parseInt(inputs.alfajor.value) },
-      { nombre: "Yogurt natural", cantidad: parseInt(inputs.yogurt.value) }
-    ];
+  // Definimos precios (MXN)
+  const precios = {
+    sandwich: 120,
+    alfajor: 120,  // es "3 por 120", así que el precio es por cada 3 unidades
+    yogurt: 120
+  };
 
-    const seleccionados = productos
-      .filter(p => p.cantidad > 0)
-      .map(p => `${p.cantidad} x ${p.nombre}`)
-      .join('\n');
+  // Cantidades
+  const cantidades = {
+    sandwich: parseInt(inputs.sandwich.value) || 0,
+    alfajor: parseInt(inputs.alfajor.value) || 0,
+    yogurt: parseInt(inputs.yogurt.value) || 0,
+  };
 
-    if (seleccionados === "") {
-      alert("Seleccioná al menos un producto 🙂");
-      return;
-    }
+  // Armamos lista de productos pedidos
+  const productos = [];
 
-    const mensaje = encodeURIComponent(`Hola! Quiero pedir:\n${seleccionados}`);
-    const telefono = "5491153842626";
-    const url = `https://wa.me/${telefono}?text=${mensaje}`;
-    window.open(url, '_blank');
-
-    // 🔄 Blanquear cantidades después de enviar
-    Object.values(inputs).forEach(input => input.value = 0);
+  if(cantidades.sandwich > 0) {
+    productos.push(`${cantidades.sandwich} x Sándwich de milanesa`);
   }
+
+  if(cantidades.alfajor > 0) {
+    productos.push(`${cantidades.alfajor} x Alfajores de maicena`);
+  }
+
+  if(cantidades.yogurt > 0) {
+    productos.push(`${cantidades.yogurt} x Yogurt natural`);
+  }
+
+  if(productos.length === 0){
+    alert("Seleccioná al menos un producto 🙂");
+    return;
+  }
+
+  // Cálculo del total:
+  // Para alfajores: precio es 120 MXN por 3 unidades,
+  // entonces calculamos grupos de 3
+  const totalSandwich = cantidades.sandwich * precios.sandwich;
+  const totalAlfajor = Math.ceil(cantidades.alfajor / 3) * precios.alfajor;
+  const totalYogurt = cantidades.yogurt * precios.yogurt;
+
+  const total = totalSandwich + totalAlfajor + totalYogurt;
+
+  // Construimos mensaje
+  const mensajeTexto = `Hola! Quiero pedir:\n${productos.join('\n')}\n\nPor un total de ${total} MXN`;
+
+  const mensaje = encodeURIComponent(mensajeTexto);
+  const telefono = "5491153842626";
+  const url = `https://wa.me/${telefono}?text=${mensaje}`;
+  window.open(url, '_blank');
+
+  // Reseteamos cantidades
+  Object.values(inputs).forEach(input => input.value = 0);
+}
+
 </script>
 
 </body>
