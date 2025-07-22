@@ -104,3 +104,13 @@ footer {
   margin: 0 auto;
 }
 
+@media (max-width: 600px) {
+  section {
+    padding: 20px 10px;
+  }
+
+  .menu-card {
+    width: 90%;
+  }
+}
+
