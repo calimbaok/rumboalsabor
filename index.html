@@ -47,9 +47,9 @@
         <img src="img/alfajor.jpg" alt="Alfajores de maicena" />
         <h3>Alfajores de maicena</h3>
         <p>Rellenos con dulce de leche, espolvoreados con coco.</p>
-        <p>3 por 120 MXN</p>
+        <p>40 MXN por unidad</p>
         <div class="menu-buttons">
-          <input type="number" min="0" value="0" id="alfajor" step="3" />
+          <input type="number" min="0" value="0" id="alfajor" />
           <p>Elegir cantidad</p>
         </div>
       </div>
@@ -87,7 +87,7 @@
   // Definimos precios (MXN)
   const precios = {
     sandwich: 120,
-    alfajor: 120,  // es "3 por 120", así que el precio es por cada 3 unidades
+    alfajor: 40,  // es "3 por 120", así que el precio es por cada 3 unidades
     yogurt: 120
   };
 
@@ -118,11 +118,16 @@
     return;
   }
 
+    if(productos.yogurt  > 10 || cantidades.alfajor > 10 || cantidades.sandwich){
+    alert("Cantidad por mayor... es un pedido especial 🍪");
+    return;
+  }
+
   // Cálculo del total:
   // Para alfajores: precio es 120 MXN por 3 unidades,
   // entonces calculamos grupos de 3
   const totalSandwich = cantidades.sandwich * precios.sandwich;
-  const totalAlfajor = Math.ceil(cantidades.alfajor / 3) * precios.alfajor;
+  const totalAlfajor = cantidades.alfajor  * precios.alfajor;
   const totalYogurt = cantidades.yogurt * precios.yogurt;
 
   const total = totalSandwich + totalAlfajor + totalYogurt;
