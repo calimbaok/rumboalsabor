@@ -96,3 +96,11 @@ footer {
   padding: 15px;
   margin-top: 40px;
 }
+
+#inicio img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
