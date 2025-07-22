@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calimba - Rumbo al sabor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Calimba - Rumbo al sabor</h1>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotras">Nosotras</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="inicio">
+    <h2>¡Bienvenid@!</h2>
+    <p>Con tu compra nos ayudás a sumar kilómetros para cumplir nuestro sueño 💛</p>
+    <img src="img/camioneta.jpg" alt="Nuestra camioneta Calimba" />
+  </section>
+
+  <section id="nosotras">
+    <h2>Sobre nosotras</h2>
+    <p>Somos Flor y Gise, viajeras, emprendedoras y cocineras itinerantes. <a href="https://linktr.ee/profesionalesenelcamino" target="_blank">Conocé más sobre nuestro proyecto</a>.</p>
+  </section>
+
+  <section id="menu">
+    <h2>Menú</h2>
+    <div class="menu-container">
+      <div class="menu-card">
+        <img src="img/sandwich.jpg" alt="Sándwich de milanesa" />
+        <h3>Sándwich de milanesa</h3>
+        <p>Pan casero, milanesa crujiente y aderezos caseros.</p>
+        <div class="menu-buttons">
+          <input type="number" min="0" value="0" id="sandwich" />
+          <p>Elegir cantidad</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="img/alfajor.jpg" alt="Alfajores de maicena" />
+        <h3>Alfajores de maicena</h3>
+        <p>Rellenos con dulce de leche, espolvoreados con coco.</p>
+        <div class="menu-buttons">
+          <input type="number" min="0" value="0" id="alfajor" />
+          <p>Elegir cantidad</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="img/yogur.jpg" alt="Yogurt natural" />
+        <h3>Yogurt natural</h3>
+        <p>Con frutas frescas y cereales. 600cm de puro sabor</p>
+        <div class="menu-buttons">
+          <input type="number" min="0" value="0" id="yogurt" />
+          <p>Elegir cantidad</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Seguinos en <a href="https://instagram.com/combicalimbaok" target="_blank">@combicalimbaok</a></p>
+    <button class="whatsapp-btn" onclick="enviarPedido()">Hacé tu pedido por WhatsApp</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Calimba - Rumbo al sabor</p>
+  </footer>
+
+<script>
+  function enviarPedido() {
+    const inputs = {
+      sandwich: document.getElementById("sandwich"),
+      alfajor: document.getElementById("alfajor"),
+      yogurt: document.getElementById("yogurt")
+    };
+
+    const productos = [
+      { nombre: "Sándwich de milanesa", cantidad: parseInt(inputs.sandwich.value) },
+      { nombre: "Alfajores de maicena", cantidad: parseInt(inputs.alfajor.value) },
+      { nombre: "Yogurt natural", cantidad: parseInt(inputs.yogurt.value) }
+    ];
+
+    const seleccionados = productos
+      .filter(p => p.cantidad > 0)
+      .map(p => `${p.cantidad} x ${p.nombre}`)
+      .join('\n');
+
+    if (seleccionados === "") {
+      alert("Seleccioná al menos un producto 🙂");
+      return;
+    }
+
+    const mensaje = encodeURIComponent(`Hola! Quiero pedir:\n${seleccionados}`);
+    const telefono = "5491153842626";
+    const url = `https://wa.me/${telefono}?text=${mensaje}`;
+    window.open(url, '_blank');
+
+    // 🔄 Blanquear cantidades después de enviar
+    Object.values(inputs).forEach(input => input.value = 0);
+  }
+</script>
+
+</body>
+</html>
