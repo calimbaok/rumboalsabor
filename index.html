@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calimba - Rumbo al sabor</title>
-  <link rel="stylesheet" href="styles.css" />
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PPX4F7TB');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="img/"/>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="Profesionales en el camino, cursos de capacitación, gestión de empresas, development.">
+
+    <!--LIBRERIRAS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://kit.fontawesome.com/1c9687f1ac.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
+    <!--FACEBOOK-->
+    <meta property="og:title" content="Calimba">
+    <meta property="og:image" content= "https://res.cloudinary.com/giseares/image/upload/v1648061267/d8se11j025blmnewwcxhlvqc4y58.jpg">
+    <meta property="og:description" content="Profesionales en el camino">
+    <meta property="og:site_name" content="Profesionales en el Camino">
+
+    <!-- Twitter -->
+    <meta property="twitter:title" content="Flor Cernuschi">
+    <meta property="twitter:description" content="Profesionales en el camino">
+    <meta property="twitter:image" content= "https://res.cloudinary.com/giseares/image/upload/v1648061267/d8se11j025blmnewwcxhlvqc4y58.jpg">
+    
+    <!--BotPress
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/d9148669-8a39-4be0-a674-5ff472a205ea/webchat/config.js" defer></script>
+    -->
+    <title>Calimba - Rumbo al sabor</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>Calimba - Rumbo al sabor</h1>
+    <h1> Rumbo al sabor</h1>
     <nav>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
@@ -18,7 +53,7 @@
       </ul>
     </nav>
   </header>
-
+  <br>
   <section id="inicio">
     <h2>¡Bienvenid@!</h2>
     <p>Con tu compra nos ayudás a sumar kilómetros para cumplir nuestro sueño 💛</p>
@@ -27,7 +62,8 @@
 
   <section id="nosotras">
     <h2>Sobre nosotras</h2>
-    <p>Somos Flor y Gise, viajeras, emprendedoras y cocineras itinerantes. <a href="https://linktr.ee/profesionalesenelcamino" target="_blank">Conocé más sobre nuestro proyecto</a>.</p>
+    <p>Somos Flor y Gise, viajeras, emprendedoras y cocineras itinerantes. 
+    <p><a href="https://linktr.ee/profesionalesenelcamino" target="_blank">Conocé más sobre nuestro proyecto</a>.</p>
   </section>
 
   <section id="menu">
@@ -73,7 +109,29 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Calimba - Rumbo al sabor</p>
+  <div class="content mb-0">
+    <div class="left box">
+      <div class="upper">
+        <div class="topic"><strong>Lo que creemos</strong></div>
+        <p>“Nuestro pasado, nuestro presente y lo que queda de nuestro futuro 
+        depende absolutamente de lo que haremos hoy”.</p>
+        <p> Silvya Earle</p>
+      </div>
+    </div>
+    
+    <div class="right box text-right">
+      <div class="topic"><strong>Redes Sociales</strong></div>
+        <div class="media-icons">
+          <a href="https://www.instagram.com/combicalimbaok/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/channel/UC6gKILvZxRGYUyy86tbJ9VA" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="footer-copyright">
+          <p class="text-right">Comparti con <i class="fas fa-heart" ></i>  <br>
+          Copyright © 2025 <strong>giseAres</strong> All rights reserved</p>
+        </div>
+      </div>
+    </div> 
+  </div>  
   </footer>
 
 <script>
@@ -115,11 +173,6 @@
 
   if(productos.length === 0){
     alert("Seleccioná al menos un producto 🙂");
-    return;
-  }
-
-  if (cantidades.sandwich > 10 || cantidades.alfajor > 10 || cantidades.yogurt > 10) {
-    alert("Cantidad por mayor... es un pedido especial 🍪");
     return;
   }
 
