@@ -13,3 +13,4 @@ document.addEventListener("DOMContentLoaded", () => {
   cantidadInput.addEventListener("input", actualizarTotal);
   actualizarTotal();
 });
+
