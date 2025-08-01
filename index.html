@@ -94,10 +94,10 @@
         <h3>Yogurt natural</h3>
         <p>Con frutas frescas y cereales. 600cm de puro sabor</p>
         <p>120 MXN</p>
-        <div class="menu-buttons">
-          <input type="number" min="0" value="0" id="yogurt" />
-          <p>Elegir cantidad</p>
+        <div class="menu-buttons d-flex justify-content-end">
+          <input type="number" min="0" value="0" id="yogurt" class="form-control w-auto" />
         </div>
+        <p>Elegir cantidad</p>
       </div>
     </div>
   </section>
@@ -189,7 +189,7 @@
   const mensajeTexto = `Hola! Quiero pedir:\n${productos.join('\n')}\n\nPor un total de ${total} MXN`;
 
   const mensaje = encodeURIComponent(mensajeTexto);
-  const telefono = "5491153842626";
+  const telefono = "5212291278097"; //  5491153842626
   const url = `https://wa.me/${telefono}?text=${mensaje}`;
   window.open(url, '_blank');
 
