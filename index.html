@@ -93,7 +93,7 @@
         <br>
         <h3>Alfajores de maicena</h3>
         <p>Rellenos con dulce de leche, espolvoreados con coco.</p>
-        <p>40 MXN por unidad</p>
+        <p>3 x 100 MXN</p>
         <div class="menu-buttons">
           <input type="number" min="0" value="0" id="alfajor" />
           <p>Elegir cantidad</p>
@@ -106,9 +106,10 @@
         <p>Con frutas frescas y cereales. 600cm de puro sabor</p>
         <p>120 MXN</p>
         <div class="menu-buttons d-flex justify-content-end">
-          <input type="number" min="0" value="0" id="yogurt" class="form-control w-auto" />
+          <input type="number" min="0" value="0" id="yogurt" class="form-control w-auto" disabled />
         </div>
-        <p>Elegir cantidad</p>
+        <br>
+        <p>Disponible la próxima semana</p>
       </div>
     </div>
   </section>
@@ -155,9 +156,9 @@
 
   // Definimos precios (MXN)
   const precios = {
-    sandwich: 120,
-    alfajor: 40,  // es "3 por 120", así que el precio es por cada 3 unidades
-    yogurt: 120
+    sandwich: 100,
+    alfajor: 100,  // es "3 por 120", así que el precio es por cada 3 unidades
+    yogurt: 100
   };
 
   // Cantidades
